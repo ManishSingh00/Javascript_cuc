@@ -14,3 +14,8 @@
 ( (name) => {
     console.log(`DB CONNECTED TWO ${name}`);
 } )('manish')  // here manish is passed as an argument to the function
+
+
+
+
+// After this read about  " How javascript work behind the scenes, url :- https://youtu.be/ByhtOgF6uYM?si=cJRUkCTy_iwkMM-6
