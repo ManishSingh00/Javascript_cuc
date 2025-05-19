@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=], initial-scale=1.0">
+    <title>DOM Learning From Youtube</title>
+</head>
+<body style="background-color: black;Color:white">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(Lang_name){
+        const li = document.createElement('li');
+        li.innerHTML=`${Lang_name}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("python")
+    addLanguage("Ruby on Rail")
+
+    function optimised_add_lang(lang_name){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(lang_name))
+        document.querySelector('.language').appendChild(li)
+    }
+    optimised_add_lang("typescript")
+
+    // Now we will see how to EDIT these value
+
+    const second_lang = document.querySelector("li:nth-child(2)")
+    // console.log(second_lang)
+    // second_lang.innerHTML='MOJO'// first method
+    // const newli = document.createElement('li')
+    // newli.textContent='mojo'
+    // second_lang.replaceWith(newli)  // second method
+
+    second_lang.outerHTML='<li>MOJo</li>'  // third method
+
+    // how to remove these elements:--
+    const last_lang = document.querySelector('li:last-child')
+    last_lang.remove()
+
+    
+</script>
+</html>
