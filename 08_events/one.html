@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+     <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>   
+</body>
+<script>
+    //  document.getElementById('owl').onclick = function(){    // APPROACH 1
+    //     alert("owl clicked")
+    // }
+    document.getElementById('owl').addEventListener('click', function(e){  // APPROACH 2
+        alert("owl clicked again");
+    }, false)
+
+     // attachEvent()  // APPROCH 3
+    // jQuery - on // APPROACH 4 (used earlier)
+
+
+    // READ ABOUT THESE EVENTS BEFORE INTERVIEW(ASKED FREQ.......)
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    // There are two two ways of EVENT PROPAGATION:
+    // 1) EVENT BUBBLING  and 2)  EVENT CAPTURING
+    // The main difference lies in the direction of event propagation: bubbling goes from the target up, 
+    // while capturing goes from the root down. By default, event listeners are attached in the bubbling
+    //  phase(false value at the end of addeventlistener). To use capturing, one needs to explicitly
+    //  specify it(we have to write true in palce of that false value) when adding the event listener.
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, false)
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    //     e.stopPropagation()
+    // }, false)
+    
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation() // to stop bubbling and capturing
+    //     console.log("google clicked");
+    // }, false)
+
+
+    // Task is to remove the image from the page after clicking it:--
+    document.querySelector('#images').addEventListener('click',function(e){
+        // console.log(e)
+        // console.log(e.target.tagName)
+        if(e.target.tagName==='IMG'){
+            // console.log(e.target.id)
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+    },false)
+
+
+
+</script>
+</html>
