@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Javascript Learning</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = 'Good resources is youtube'
+    }
+    
+    const text_changer = setTimeout(changeText,2000);
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(text_changer)
+        console.log('Event stopped')
+    })
+//  basucally we have seen how settimeout and clear time out works
+// setTimeOut  executes only once after a given duration while 
+// setInterval repeatedly executes after a given interval
+
+</script>
+</html>
