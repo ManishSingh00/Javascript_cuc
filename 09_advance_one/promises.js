@@ -126,6 +126,8 @@ async function getAllUsers(){
 .catch((error)=>{
     console.log(error)
 })
+//  fetch() seems to be  executed immediately because fetch is related to micro-task queue
+// OR priority queue  which have very high priority as compared to normal task queue. 
 
 
 
